@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteless_app/pages/bookpage/book_home.dart';
+import 'package:noteless_app/pages/bookpage/diary_home.dart';
 import 'package:noteless_app/pages/notepage/notes_home.dart';
 
 import '../routes/routes.dart';
@@ -26,115 +26,118 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 90),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 38,
-                    height: 38,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: (currentIndex == 1)
-                            ? Colors.white
-                            : const Color(0xffC0012A),
-                        padding: const EdgeInsets.all(0),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          currentIndex = 0;
-                          page.animateToPage(
-                            currentIndex,
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeIn,
-                          );
-                        });
-                      },
-                      child: Image.asset(
-                        'assets/img/note_icon.png',
-                        width: 30,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  SizedBox(
-                    width: 38,
-                    height: 38,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 90),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 38,
+                      height: 38,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: (currentIndex == 1)
-                              ? const Color(0xffC0012A)
-                              : Colors.white,
-                          padding: const EdgeInsets.all(0)),
-                      onPressed: () {
-                        setState(() {
-                          currentIndex = 1;
-                          page.animateToPage(
-                            currentIndex,
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeIn,
-                          );
-                        });
-                      },
-                      child: Image.asset(
-                        'assets/img/book_icon.png',
-                        width: 30,
+                              ? Colors.white
+                              : const Color(0xffC0012A),
+                          padding: const EdgeInsets.all(0),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            currentIndex = 0;
+                            page.animateToPage(
+                              currentIndex,
+                              duration: const Duration(milliseconds: 200),
+                              curve: Curves.easeIn,
+                            );
+                          });
+                        },
+                        child: Image.asset(
+                          'assets/img/note_icon.png',
+                          width: 30,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: SizedBox(
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
                       width: 38,
                       height: 38,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             elevation: 0,
-                            backgroundColor: Colors.transparent,
+                            backgroundColor: (currentIndex == 1)
+                                ? const Color(0xffC0012A)
+                                : Colors.white,
                             padding: const EdgeInsets.all(0)),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.settings,
-                          color: Colors.orange,
+                        onPressed: () {
+                          setState(() {
+                            currentIndex = 1;
+                            page.animateToPage(
+                              currentIndex,
+                              duration: const Duration(milliseconds: 200),
+                              curve: Curves.easeIn,
+                            );
+                          });
+                        },
+                        child: Image.asset(
+                          'assets/img/book_icon.png',
+                          width: 30,
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 80,
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50),
+                      child: SizedBox(
+                        width: 38,
+                        height: 38,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              padding: const EdgeInsets.all(0)),
+                          onPressed: () {},
+                          child: const Icon(
+                            Icons.settings,
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 80,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.8,
-              child: PageView(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentIndex = value;
-                  });
-                },
-                controller: page,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 26),
-                    child: NotesPage(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 26),
-                    child: BookHome(),
-                  ),
-                ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: PageView(
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentIndex = value;
+                    });
+                  },
+                  controller: page,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 26),
+                      child: NotesPage(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 26),
+                      child: DiaryHome(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -191,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             Navigator.of(
                               context,
-                            ).pushNamed(RoutesManager.bookpage);
+                            ).pushNamed(RoutesManager.diarypage);
                           },
                           child: Row(
                             children: const [
