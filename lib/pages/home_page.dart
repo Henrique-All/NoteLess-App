@@ -157,58 +157,52 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(
-                        width: 210,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Colors.transparent),
-                          onPressed: () {
-                            Navigator.of(
-                              context,
-                            ).pushNamed(RoutesManager.notepage);
-                          },
-                          child: Row(
-                            children: const [
-                              Icon(
-                                Icons.add,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0, backgroundColor: Colors.transparent),
+                        onPressed: () {
+                          Navigator.of(
+                            context,
+                          ).pushNamed(RoutesManager.notepage);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.add,
+                              color: Colors.orange,
+                            ),
+                            Text(
+                              'Create new Note',
+                              style: TextStyle(
                                 color: Colors.orange,
+                                fontSize: 20,
                               ),
-                              Text(
-                                'Create new Note',
+                            ),
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0, backgroundColor: Colors.transparent),
+                        onPressed: () {
+                          Navigator.of(
+                            context,
+                          ).pushNamed(RoutesManager.diarypage);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.add,
+                              color: Colors.orange,
+                            ),
+                            Text('Create new Book',
                                 style: TextStyle(
                                   color: Colors.orange,
                                   fontSize: 20,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 210,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Colors.transparent),
-                          onPressed: () {
-                            Navigator.of(
-                              context,
-                            ).pushNamed(RoutesManager.diarypage);
-                          },
-                          child: Row(
-                            children: const [
-                              Icon(
-                                Icons.add,
-                                color: Colors.orange,
-                              ),
-                              Text('Create new Book',
-                                  style: TextStyle(
-                                    color: Colors.orange,
-                                    fontSize: 20,
-                                  )),
-                            ],
-                          ),
+                                )),
+                          ],
                         ),
                       ),
                     ],
