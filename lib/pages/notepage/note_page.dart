@@ -17,9 +17,12 @@ class _NotePageState extends State<NotePage> {
       body: SafeArea(
           child: Column(
         children: [
-          Row(
-            children: [
-              ElevatedButton(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     backgroundColor: Colors.transparent,
@@ -42,10 +45,48 @@ class _NotePageState extends State<NotePage> {
                             color: Color(0xffC0012A),
                             fontSize: 16,
                             fontWeight: FontWeight.w800),
-                      )
+                      ),
                     ],
-                  ))
-            ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 34,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(0),
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                        ),
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.share,
+                          color: Color(0xffC0012A),
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 34,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(0),
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                        ),
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.more_vert,
+                          color: Color(0xffC0012A),
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ],
       )),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class NotesPage extends StatefulWidget {
-  const NotesPage({super.key});
+class BookHome extends StatefulWidget {
+  const BookHome({super.key});
 
   @override
-  State<NotesPage> createState() => _NotesPageState();
+  State<BookHome> createState() => _BookHomeState();
 }
 
-class _NotesPageState extends State<NotesPage> {
+class _BookHomeState extends State<BookHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class _NotesPageState extends State<NotesPage> {
         children: [
           const Center(
             child: Text(
-              'Notes',
+              'Books',
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -45,6 +45,7 @@ class _NotesPageState extends State<NotesPage> {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
