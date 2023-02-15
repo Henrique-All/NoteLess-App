@@ -16,6 +16,17 @@ class _HomePageState extends State<HomePage> {
   late PageController page;
   int currentIndex = 0;
 
+  final bool _iconBool = false;
+
+  final IconData _iconLight = Icons.wb_sunny;
+  final IconData _iconDark = Icons.wb_sunny;
+
+  final ThemeData _lightTheme = ThemeData(
+      primaryColor: const Color(0xffC0012A), backgroundColor: Colors.white);
+  final ThemeData _darkTheme = ThemeData(
+      primaryColor: const Color(0xffC0012A),
+      backgroundColor: const Color(0xff363432));
+
   @override
   void initState() {
     super.initState();
@@ -31,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 90),
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -42,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: (currentIndex == 1)
-                              ? Colors.white
+                              ? Colors.transparent
                               : const Color(0xffC0012A),
                           padding: const EdgeInsets.all(0),
                         ),
@@ -51,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                             currentIndex = 0;
                             page.animateToPage(
                               currentIndex,
-                              duration: const Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 400),
                               curve: Curves.easeIn,
                             );
                           });
@@ -73,14 +84,14 @@ class _HomePageState extends State<HomePage> {
                             elevation: 0,
                             backgroundColor: (currentIndex == 1)
                                 ? const Color(0xffC0012A)
-                                : Colors.white,
+                                : Colors.transparent,
                             padding: const EdgeInsets.all(0)),
                         onPressed: () {
                           setState(() {
                             currentIndex = 1;
                             page.animateToPage(
                               currentIndex,
-                              duration: const Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 400),
                               curve: Curves.easeIn,
                             );
                           });
@@ -90,27 +101,6 @@ class _HomePageState extends State<HomePage> {
                           width: 30,
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50),
-                      child: SizedBox(
-                        width: 38,
-                        height: 38,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Colors.transparent,
-                              padding: const EdgeInsets.all(0)),
-                          onPressed: () {},
-                          child: const Icon(
-                            Icons.settings,
-                            color: Colors.orange,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 80,
                     ),
                   ],
                 ),
