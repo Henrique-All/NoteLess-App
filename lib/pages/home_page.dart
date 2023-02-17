@@ -16,17 +16,6 @@ class _HomePageState extends State<HomePage> {
   late PageController page;
   int currentIndex = 0;
 
-  final bool _iconBool = false;
-
-  final IconData _iconLight = Icons.wb_sunny;
-  final IconData _iconDark = Icons.wb_sunny;
-
-  final ThemeData _lightTheme = ThemeData(
-      primaryColor: const Color(0xffC0012A), backgroundColor: Colors.white);
-  final ThemeData _darkTheme = ThemeData(
-      primaryColor: const Color(0xffC0012A),
-      backgroundColor: const Color(0xff363432));
-
   @override
   void initState() {
     super.initState();
@@ -36,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff363432),
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

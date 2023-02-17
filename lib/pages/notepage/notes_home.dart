@@ -11,6 +11,7 @@ class _NotesPageState extends State<NotesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff363432),
       body: Column(
         children: [
           const Center(
@@ -44,42 +45,45 @@ class _NotesPageState extends State<NotesPage> {
                   contentPadding: EdgeInsets.all(15)),
             ),
           ),
-          Row(
-            children: [
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xffC0012A),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, left: 5),
+            child: Row(
+              children: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffC0012A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      fixedSize: const Size(46, 30),
                     ),
+                    onPressed: () {},
+                    child: const Text(
+                      'All',
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    )),
+                const SizedBox(
+                  width: 12,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    backgroundColor: const Color(0xffC0012A),
                     fixedSize: const Size(46, 30),
                   ),
                   onPressed: () {},
-                  child: const Text(
-                    'All',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  )),
-              const SizedBox(
-                width: 12,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  backgroundColor: const Color(0xffC0012A),
-                  fixedSize: const Size(46, 30),
-                ),
-                onPressed: () {},
-                child: const Icon(
-                  Icons.folder,
-                  color: Colors.orange,
-                ),
-              )
-            ],
+                  child: const Icon(
+                    Icons.folder,
+                    color: Colors.orange,
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
