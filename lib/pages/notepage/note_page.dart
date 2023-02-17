@@ -13,12 +13,12 @@ class _NotePageState extends State<NotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange,
+      backgroundColor: const Color(0xff363432),
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -36,13 +36,13 @@ class _NotePageState extends State<NotePage> {
                       children: const [
                         Icon(
                           Icons.arrow_back_ios,
-                          color: Color(0xffC0012A),
+                          color: Colors.orange,
                           size: 35,
                         ),
                         Text(
                           'back',
                           style: TextStyle(
-                              color: Color(0xffC0012A),
+                              color: Colors.orange,
                               fontSize: 16,
                               fontWeight: FontWeight.w800),
                         ),
@@ -62,7 +62,7 @@ class _NotePageState extends State<NotePage> {
                           onPressed: () {},
                           child: const Icon(
                             Icons.share,
-                            color: Color(0xffC0012A),
+                            color: Colors.orange,
                             size: 20,
                           ),
                         ),
@@ -78,7 +78,7 @@ class _NotePageState extends State<NotePage> {
                           onPressed: () {},
                           child: const Icon(
                             Icons.more_vert,
-                            color: Color(0xffC0012A),
+                            color: Colors.orange,
                             size: 24,
                           ),
                         ),
@@ -89,17 +89,26 @@ class _NotePageState extends State<NotePage> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            const TextField(
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 28,
-                  color: Color(0xff363432),
-                  fontWeight: FontWeight.w800),
-              decoration: InputDecoration(
-                hintText: 'Title',
-                border: InputBorder.none,
+            const SizedBox(
+              width: 300,
+              child: TextField(
+                maxLength: 50,
+                maxLines: null,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.orange,
+                    fontWeight: FontWeight.w800),
+                decoration: InputDecoration(
+                  counterText: '',
+                  hintText: 'Title',
+                  hintStyle: TextStyle(
+                    color: Color.fromARGB(255, 129, 129, 129),
+                  ),
+                  border: InputBorder.none,
+                ),
               ),
             ),
             const SizedBox(
@@ -111,7 +120,7 @@ class _NotePageState extends State<NotePage> {
               height: MediaQuery.of(context).size.height * 0.9,
               child: Container(
                 decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xff6B6B6B),
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(30.0),
                         topLeft: Radius.circular(30.0))),
@@ -119,10 +128,13 @@ class _NotePageState extends State<NotePage> {
                   padding: EdgeInsets.all(10),
                   child: TextField(
                     style: TextStyle(
-                        color: Color(0xff363432), fontWeight: FontWeight.w800),
+                        color: Colors.orange, fontWeight: FontWeight.w800),
                     decoration: InputDecoration(
                       hintText: 'Start typing...',
                       border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        color: Color.fromARGB(255, 48, 47, 47),
+                      ),
                     ),
                     maxLines: null,
                   ),

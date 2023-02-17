@@ -46,7 +46,7 @@ class _NotesPageState extends State<NotesPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10, left: 5),
+            padding: const EdgeInsets.all(8),
             child: Row(
               children: [
                 ElevatedButton(

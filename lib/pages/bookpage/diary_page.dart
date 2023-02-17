@@ -13,11 +13,11 @@ class _DiaryPageState extends State<DiaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE7D5C1),
+      backgroundColor: const Color(0xff363432),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -38,13 +38,13 @@ class _DiaryPageState extends State<DiaryPage> {
                         children: const [
                           Icon(
                             Icons.arrow_back_ios,
-                            color: Color(0xffC0012A),
+                            color: Colors.orange,
                             size: 35,
                           ),
                           Text(
                             'back',
                             style: TextStyle(
-                                color: Color(0xffC0012A),
+                                color: Colors.orange,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w800),
                           ),
@@ -64,7 +64,7 @@ class _DiaryPageState extends State<DiaryPage> {
                             onPressed: () {},
                             child: const Icon(
                               Icons.share,
-                              color: Color(0xffC0012A),
+                              color: Colors.orange,
                               size: 20,
                             ),
                           ),
@@ -80,7 +80,7 @@ class _DiaryPageState extends State<DiaryPage> {
                             onPressed: () {},
                             child: const Icon(
                               Icons.more_vert,
-                              color: Color(0xffC0012A),
+                              color: Colors.orange,
                               size: 24,
                             ),
                           ),
@@ -90,15 +90,21 @@ class _DiaryPageState extends State<DiaryPage> {
                   ],
                 ),
                 const SizedBox(
-                  width: 200,
+                  width: 300,
                   child: TextField(
+                    maxLength: 50,
+                    maxLines: null,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 20,
-                        color: Color(0xff363432),
+                        fontSize: 30,
+                        color: Colors.white,
                         fontWeight: FontWeight.w800),
                     decoration: InputDecoration(
+                      counterText: '',
                       hintText: 'Title',
+                      hintStyle: TextStyle(
+                        color: Color.fromARGB(95, 240, 240, 240),
+                      ),
                       border: InputBorder.none,
                     ),
                   ),
@@ -107,12 +113,14 @@ class _DiaryPageState extends State<DiaryPage> {
                   height: MediaQuery.of(context).size.height * 0.8,
                   child: const TextField(
                     style: TextStyle(
-                        color: Color(0xff363432), fontWeight: FontWeight.w800),
+                        color: Colors.white, fontWeight: FontWeight.w800),
                     decoration: InputDecoration(
                       hintText: 'Talk to me',
                       border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        color: Color.fromARGB(95, 240, 240, 240),
+                      ),
                     ),
-                    maxLength: 600,
                     maxLines: null,
                   ),
                 )
